@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Michael Sanchez">
+
+    <title>CIS 255 - In-Class Exercise 02</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Template CSS -->
+    <link href="../css/template.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+ 
+	<!-- Page Menu -->
+    <div id="menu"></div>
+
+	<!-- Page Content -->
+	<div class="container">
+		
+		<!-- Row for page header and instructions -->
+		<div class="row">
+		
+			<h1 class="page-header">jQuery 02 - Deck Calculator</h1>
+
+			<div class="col-md-12">
+			
+				<p><strong>Instructions:</strong> Enter the length and width of your deck.  Specify, the board length you are using as well.</p>
+				
+			</div><!-- col-md-12 -->
+			
+		</div><!-- row -->
+		
+		<!-- Row for two columns -->
+		<div class="row">
+			<div class="col-md-4">
+			
+				<form>
+					<div class="form-group">
+						<label for="length">Length:</label>
+						<input type="text" class="form-control" id="length" placeholder="" />
+						<label for="width">Width:</label>
+						<input type="text" class="form-control" id="width" placeholder="" />
+					</div>
+					<!-- <button id="submit" type="button" onclick="update()" class="btn btn-primary">Submit</button> -->
+				</form>
+				
+			</div><!-- col-4 -->
+			<div class="col-md-4">
+			
+				<form>
+					<div class="form-group">
+						<label for="b_length">Board Length:</label>
+						<input type="text" class="form-control" id="b_length" value="8" />
+					</div>
+					<!-- <button id="submit" type="button" onclick="update()" class="btn btn-primary">Submit</button> -->
+				</form>
+				
+			</div><!-- col-6 -->
+
+		</div><!-- row -->
+		
+		<div class="row">
+			<div class="col-md-6">
+				<br>
+				<div id="response" class="well">
+				
+					You need <span id="numBoards">_</span> boards to complete you deck.
+				
+				</div>
+				
+			</div><!-- col-6 -->
+
+		</div><!-- row -->
+
+    </div><!-- container -->
+
+
+    <!-- Bootstrap core JavaScript & jQuery
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- Load page menu -->
+	<script>$("#menu").load("../include/menu.html");</script>
+	
+	<script>
+	
+		// Event - on page fully loaded
+		$(document).ready(function(){
+			
+			// Input 'celsius' - onKeyUp
+			$("#length, #width, #b_length").keyup(function() {
+				var l = $("#length").val();
+				var w = $("#width").val();
+				
+				var bl = $("#b_length").val();
+				
+				// Calculate boards needed (Assume boards are 8 x 1)
+				var area = l * w;
+				var boards = area / bl;
+				
+				// Update number of boards <span>
+				document.getElementById("numBoards").innerHTML = Math.ceil(boards);
+			});
+			
+			
+		});
+		
+	</script>
+
+  </body>
+</html>

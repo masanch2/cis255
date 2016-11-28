@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Michael Sanchez">
+
+    <title>CIS 255 - In-Class Exercise 01</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Template CSS -->
+    <link href="../css/template.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+ 
+	<!-- Page Menu -->
+    <div id="menu"></div>
+
+	<!-- Page Content -->
+	<div class="container">
+		
+		<!-- Row for page header and instructions -->
+		<div class="row">
+		
+			<h1 class="page-header">jQuery 01 - Celsius / Farenheit</h1>
+
+			<div class="col-md-6">
+			
+				<p><strong>Instructions:</strong> Enter a temperature into either text box to have it converted.</p>
+				
+			</div><!-- col-md-6 -->
+			
+		</div><!-- row -->
+		
+		<!-- Row for form -->
+		<div class="row">
+			<div class="col-md-3">
+				
+				
+				<form>
+					<div class="form-group">
+						<label for="cel">Celsius:</label>
+						<input type="text" class="form-control" id="cel" placeholder="" />
+					</div>
+					<div class="form-group">
+						<label for="far">Farenheit:</label>
+						<input type="text" class="form-control" id="far" placeholder="" />
+					</div>
+					<!-- <button id="submit" type="button" onclick="update()" class="btn btn-primary">Submit</button> -->
+				</form>
+				
+			</div><!-- col-3 -->
+
+		</div><!-- row -->
+
+    </div><!-- container -->
+
+
+    <!-- Bootstrap core JavaScript & jQuery
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- Load page menu -->
+	<script>$("#menu").load("../include/menu.html");</script>
+	
+	<script>
+	
+		// Event - on page fully loaded
+		$(document).ready(function(){
+			
+			// Input 'celsius' - onKeyUp
+			$("#cel").keyup(function() {
+				var c = document.getElementById("cel").value;
+				document.getElementById("far").value = c * 1.8 + 32;
+			});
+			
+			// Input 'farenheit' - onKeyUp
+			$("#far").keyup(function() {
+				var f = document.getElementById("far").value;
+				document.getElementById("cel").value = (f - 32) / 1.8;
+			});
+			
+			
+		});
+		
+	</script>
+
+  </body>
+</html>
